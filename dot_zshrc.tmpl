@@ -1,0 +1,27 @@
+export PATH=$HOME/bin:/usr/local/bin:$HOME/go/bin:$HOME/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="{{ .chezmoi.homedir }}/.oh-my-zsh"
+
+# ZSH theme
+ZSH_THEME="spaceship"
+
+# ZSH plugins
+plugins=(
+  z
+  git
+)
+
+source $ZSH/oh-my-zsh.sh
+
+export EDITOR='vim'
+export RANDFILE=~/.rnd
+{{- if eq .chezmoi.hostname "USMAP-U101" }}
+export CHEF_HOME='~/.chef'
+export CHEF_PROTOLABS='~/.chef/chef_protolabs'
+{{- end }}
+
+source ~/.zshrc-aliases
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C {{ .chezmoi.homedir }}/bin/mc mc

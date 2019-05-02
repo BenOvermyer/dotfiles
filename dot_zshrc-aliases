@@ -1,0 +1,3 @@
+alias ave="ansible-vault edit"
+alias avc="ansible-vault create"
+alias engage="sudo apt-get update && sudo apt-get upgrade -y"
